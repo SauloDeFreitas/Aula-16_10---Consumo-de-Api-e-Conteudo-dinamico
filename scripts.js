@@ -13,7 +13,7 @@ async function buscar(numeroProduto) {
 }
 
 function criarCards(titulo, descricao, preco){
-    const divConteiner = document.getElementById("")
+    const divConteiner = document.getElementById("conteinerPrincipal")
     const conteinerCard = document.createElement("div")
     const preco = document.createElement("span")
     const descricao = document.createElement("span")
