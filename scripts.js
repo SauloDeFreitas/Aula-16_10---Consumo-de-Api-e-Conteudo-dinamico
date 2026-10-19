@@ -15,13 +15,13 @@ async function buscar(numeroProduto) {
 function criarCards(titulo, descricao, preco){
     const divConteiner = document.getElementById("conteinerPrincipal")
     const conteinerCard = document.createElement("div")
-    const preco = document.createElement("span")
-    const descricao = document.createElement("span")
-    const titulo = document.createElement("h1")
+    const precoCard = document.createElement("span")
+    const descricaoCard = document.createElement("span")
+    const tituloCard = document.createElement("h1")
     
-    titulo.textContent = titulo
-    descricao.textContent = descricao
-    preco.textContent = preco
+    tituloCard.textContent = titulo
+    descricaoCard.textContent = descricao
+    precoCard.textContent = preco
 
     conteinerCard.className = "card"
     conteinerCard.append(titulo, descricao, preco)
@@ -31,5 +31,6 @@ function criarCards(titulo, descricao, preco){
 
 function criarTelaCards(){
     const resultado = buscar(1)
+    console.log("a")
     criarCards(resultado.title, resultado.description, resultado.price)
 }
