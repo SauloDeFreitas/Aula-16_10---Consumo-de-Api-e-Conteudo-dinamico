@@ -7,30 +7,46 @@ const URL = "https://fakestoreapi.com/products/"
 //fake store api
 
 async function buscar(numeroProduto) {
-    const busca = await fetch( URL + numeroProduto).then(res=>res.json()).then(json=>console.log(json))
+    const busca = await fetch( URL + numeroProduto).then(res=>res.json())
     
     return busca
 }
 
-function criarCards(titulo, descricao, preco){
+function criarCards(titulo, preco, imagem){
     const divConteiner = document.getElementById("conteinerPrincipal")
     const conteinerCard = document.createElement("div")
     const precoCard = document.createElement("span")
-    const descricaoCard = document.createElement("span")
     const tituloCard = document.createElement("h1")
-    
-    tituloCard.textContent = titulo
-    descricaoCard.textContent = descricao
-    precoCard.textContent = preco
+    const imagemCard = document.createElement("img")
+
+    if(titulo.lenght  <= 15){
+        tituloCard.textContent = titulo
+    }
+    else{
+        const tituloCorrido = titulo.split(" ")
+        tituloCard.textContent = tituloCorrido[0] +" " + tituloCorrido[1]+ " " + tituloCorrido[2] + "..."
+    }
+    precoCard.textContent = "R$" + preco
+    imagemCard.src = imagem
+
+    imagemCard.className = "imagemCard"
+    precoCard.className = "precoCard"
 
     conteinerCard.className = "card"
-    conteinerCard.append(titulo, descricao, preco)
+    conteinerCard.append(tituloCard,imagemCard, precoCard)
 
     divConteiner.appendChild(conteinerCard)
 }
 
-function criarTelaCards(){
-    const resultado = buscar(1)
-    console.log("a")
-    criarCards(resultado.title, resultado.description, resultado.price)
+async function criarTelaCards(){
+    for(let i = 1; i< 15; i++){
+         const resultado = await buscar(i)
+
+        const card = {
+            titulo : resultado.title,
+            preco : resultado.price,
+            imagem : resultado.image
+        }
+        criarCards(card.titulo, card.preco, card.imagem)
+    }
 }

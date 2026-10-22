@@ -3,3 +3,59 @@
     margin: 0px;
     box-sizing: content-box;
 }
+
+:root{
+    --cor-fundo: #E4FFFA;
+    --cor-destaque: #6C969D;
+}
+
+html{
+    background-color: var(--cor-fundo);
+}
+
+nav{
+    background-color: var(--cor-destaque);
+    padding: 10px;
+    color: #1a1a1a;
+}
+
+#conteinerPrincipal{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 2.5%;
+}
+
+.card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+    padding: 10px;
+    border-radius: 8px;
+    flex-direction: column;
+    border: 2px solid var(--cor-destaque);
+    box-shadow: 2px 2px 8px var(--cor-destaque);
+    
+    width: 200px;
+    height: 260px;
+
+    & h1{
+        font-size:15px;
+    }
+}
+
+.precoCard{
+    align-self: end;
+    font-size: 19px;
+    background-color: var(--cor-destaque);
+    padding: 2px;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.imagemCard{
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
