@@ -6,7 +6,8 @@
 
 :root{
     --cor-fundo: #E4FFFA;
-    --cor-destaque: #6C969D;
+    --cor-destaque: #95ccd6;
+    --cor-preco: #2f4346;
 }
 
 html{
@@ -17,6 +18,27 @@ nav{
     background-color: var(--cor-destaque);
     padding: 10px;
     color: #1a1a1a;
+    display: flex;
+    justify-content: space-between;
+
+    & button{
+        padding: 5px;
+        border: none;
+        box-shadow: 2px 2px 6px black;
+        border-radius: 10px;
+        background-color: transparent;
+    }
+
+    & select{
+        background-color: transparent;
+        box-shadow: 2px 2px 6px black;
+        border: none;
+        padding: 5px;
+        border-radius: 10px;
+        text-align: center;
+    }
+
+    
 }
 
 #conteinerPrincipal{
@@ -24,6 +46,7 @@ nav{
     flex-wrap: wrap;
     gap: 15px;
     padding: 2.5%;
+    justify-content: center;
 }
 
 .card{
@@ -36,7 +59,8 @@ nav{
     flex-direction: column;
     border: 2px solid var(--cor-destaque);
     box-shadow: 2px 2px 8px var(--cor-destaque);
-    
+    transition: 0.5s;
+
     width: 200px;
     height: 260px;
 
@@ -45,10 +69,18 @@ nav{
     }
 }
 
+
+.card:hover{
+    cursor: pointer;
+
+    width: 210px;
+    height: 270px;
+}
 .precoCard{
     align-self: end;
     font-size: 19px;
-    background-color: var(--cor-destaque);
+    color: white;
+    background-color: var(--cor-preco);
     padding: 2px;
     border-radius: 5px;
     margin-top: 5px;
@@ -59,3 +91,60 @@ nav{
     height: 150px;
     object-fit: contain;
 }
+
+.divDescricao{
+    display: flex;
+    width: 100%;
+    min-height: 400px;
+    background-color: var(--cor-destaque);
+    border-radius: 10px;
+    padding: 50px;
+    gap: 30px;
+
+    & p {
+        width: 50%;
+    }
+}
+.divEsquerda{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin: auto;
+    text-align: center;
+
+    & img{
+        padding: 10px;
+        width: 300px;      
+        align-self: center;
+        margin: auto;
+    }
+}
+
+.divDireita{    
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 10px;
+    padding: 15px;
+    width: 45%;
+    height: 90%;
+    margin: auto;
+
+    & p{
+        margin: auto;
+        font-size: 20px;
+    }
+
+    & span{
+        font-size: 26px;
+        align-self: end;
+        margin-top: auto;
+        margin-right: 5%;
+        padding: 5px;
+        color: white;
+        background-color: var(--cor-preco);
+        border-radius: 5px;
+        margin-bottom: 30px;
+    }
+}
+

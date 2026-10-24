@@ -10,6 +10,12 @@
 <body onload="criarTelaCards()">
     <nav>
         <h1>Fake Store API</h1>
+        <select onchange="filtrarCard()" id="categoriasSelect">
+            <option value="electronics">Eletrônicos</option>
+            <option value="jewelery">Joalheria</option>
+            <option value="men's clothing">Moda Masculina</option>
+        </select>
+        <button onclick="home()">Home</button>
     </nav>
     <main>
         <div id="conteinerPrincipal">
